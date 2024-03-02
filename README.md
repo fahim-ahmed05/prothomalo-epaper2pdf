@@ -19,7 +19,7 @@ To utilize this script, ensure the following are in place:
 ## Usage
 Let's get started with these simple steps:
 1. Download and install ImageMagick from [here](https://imagemagick.org/script/download.php#windows) or execute this `winget install ImageMagick.ImageMagick` command in PowerShell.
-2. Download the script to your local machine from [here](https://github.com/fahim0864/prothomalo-epaper2pdf/archive/refs/heads/main.zip) or clone this repository.
+2. Download the script to your local machine from [here](https://github.com/fahim-ahmed05/prothomalo-epaper2pdf/archive/refs/heads/main.zip) or clone this repository.
 3. Extract the zip archive then open it, click on the explorer address bar and type `cmd` then hit enter.
 4. Type `powershell` in cmd window and hit enter, then type `.\run.ps1` and hit Enter to run the script.
 
