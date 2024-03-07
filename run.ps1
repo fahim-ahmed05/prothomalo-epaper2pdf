@@ -1,16 +1,3 @@
-# Store the current execution policy
-$currentExecutionPolicy = Get-ExecutionPolicy -Scope Process
-
-# Set the execution policy to Unrestricted for the current session
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy Unrestricted
-
-# Check if ImageMagick is installed
-if (-not (Get-Command magick.exe -ErrorAction SilentlyContinue)) {
-    Write-Host -ForegroundColor Red "Error: ImageMagick is not installed."
-    Write-Host -ForegroundColor Yellow "Please download and install ImageMagick from: https://imagemagick.org/script/download.php#windows"
-    exit
-}
-
 # Define the image quality parameter on a scale of 0 to 100
 $imageQuality = 70
 
@@ -182,6 +169,3 @@ Convert-ToPDF -imageFolder ($tempFolder + "\images") -pdfFilePath $pdfFilePath
 Remove-TempFolder -tempFolderPath $tempFolder
 
 Write-Host -ForegroundColor Cyan "Script execution completed."
-
-# Restore the original execution policy
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy $currentExecutionPolicy
