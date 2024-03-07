@@ -36,6 +36,9 @@ Understand the organization of files and folders:
 - `output/`: Directory storing the generated PDF file.
 - `temp/`: Temporary folder housing intermediate files during script execution.
 
+## Demo Video
+[![Watch the Demo](https://img.youtube.com/vi/f_w57gvm6p8/0.jpg)](https://youtu.be/f_w57gvm6p8)
+
 ## Support Me
 If you found this project helpful or useful, you can support my work by buying me a coffee.
 
