@@ -1,3 +1,10 @@
+# Check if ImageMagick is installed
+if (-not (Get-Command magick.exe -ErrorAction SilentlyContinue)) {
+    Write-Host -ForegroundColor Red "Error: ImageMagick is not installed."
+    Write-Host -ForegroundColor Yellow "Please download and install ImageMagick from: https://imagemagick.org/script/download.php#windows"
+    exit
+}
+
 # Define the image quality parameter on a scale of 0 to 100
 $imageQuality = 70
 
