@@ -5,9 +5,6 @@ if (-not (Get-Command magick.exe -ErrorAction SilentlyContinue)) {
     exit
 }
 
-# Define the image quality parameter on a scale of 0 to 100
-$imageQuality = 70
-
 # Define the website URL
 $websiteUrl = "https://epaper.prothomalo.com/"
 
@@ -50,7 +47,7 @@ function Get-WebsiteSource {
 }
 
 # Function to extract image links from HTML source
-function Extract-ImageLinks {
+function Get-ImageLinks {
     param (
         [string]$htmlFilePath,
         [string]$outputFilePath
@@ -70,7 +67,7 @@ function Extract-ImageLinks {
 }
 
 # Function to download images
-function Download-Images {
+function Get-Images {
     param (
         [string]$imageLinksFilePath,
         [string]$imageFolder
@@ -111,7 +108,6 @@ function Rename-DownloadedFiles {
     foreach ($file in $files) {
         # Extract the file name using regex and rename the file
         $newFileName = $file.Name -replace '^.*?_', ''  # Remove everything until the first underscore
-        $newFilePath = Join-Path -Path $imageFolder -ChildPath $newFileName
         Rename-Item -Path $file.FullName -NewName $newFileName
     }
 
@@ -127,7 +123,7 @@ function Convert-ToPDF {
 
     Write-Host -ForegroundColor Green "Converting images to PDF..."
     # Convert images to PDF using ImageMagick
-    magick.exe convert -quality $imageQuality $imageFolder\* $pdfFilePath
+    magick.exe convert $imageFolder\* $pdfFilePath
     Write-Host -ForegroundColor Green "PDF created and saved to $pdfFilePath"
 }
 
@@ -161,10 +157,10 @@ if (-not (Test-Path $tempFolder)) {
 Get-WebsiteSource -url $websiteUrl -outputFilePath ($tempFolder + "\" + $htmlFileName)
 
 # Extract image links
-Extract-ImageLinks -htmlFilePath ($tempFolder + "\" + $htmlFileName) -outputFilePath ($tempFolder + "\" + $imageLinksFileName)
+Get-ImageLinks -htmlFilePath ($tempFolder + "\" + $htmlFileName) -outputFilePath ($tempFolder + "\" + $imageLinksFileName)
 
 # Download images
-Download-Images -imageLinksFilePath ($tempFolder + "\" + $imageLinksFileName) -imageFolder ($tempFolder + "\images")
+Get-Images -imageLinksFilePath ($tempFolder + "\" + $imageLinksFileName) -imageFolder ($tempFolder + "\images")
 
 # Rename downloaded files
 Rename-DownloadedFiles -imageFolder ($tempFolder + "\images")
