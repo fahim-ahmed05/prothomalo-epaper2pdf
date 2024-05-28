@@ -12,6 +12,7 @@ This PowerShell script simplifies the process of downloading images from the [Pr
 
 ## Notes
 - If you can't run the script or get execution policy error, execute this `Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted` command in PowerShell then run the script.
+- Download prothomalo-epaper.bat from [here](https://github.com/fahim-ahmed05/prothomalo-epaper2pdf/blob/main/prothomalo-epaper.bat) and place it on your desktop or wherever you want to easily run the script but first make sure you've ImageMagick installed. 
 - If you face any bug or error, please open a [issue](https://github.com/fahim0864/prothomalo-epaper2pdf/issues) or message in the [telegram group](https://t.me/+jTKFvw-_SXg0NzZl) with error message or screenshot.
 
 ## Usage
