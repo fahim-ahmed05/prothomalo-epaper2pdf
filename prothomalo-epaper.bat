@@ -14,13 +14,27 @@ if exist "%CONFIG_FILE%" (
     set /p "SCRIPT_FOLDER=" < "%CONFIG_FILE%"
     if "%SCRIPT_FOLDER%"=="Cancelled" (
         echo No folder selected. Exiting.
+        del "%CONFIG_FILE%" 2>nul
         endlocal
         exit /b 1
     )
 )
 
 :Continue
+if "%SCRIPT_FOLDER%"=="Cancelled" (
+    echo No folder selected. Exiting.
+    del "%CONFIG_FILE%" 2>nul
+    endlocal
+    exit /b 1
+)
+
 set "SCRIPT_PATH=!SCRIPT_FOLDER!\run.ps1"
+
+rem Check if run.ps1 exists in the specified folder
+if not exist "!SCRIPT_PATH!" (
+    echo run.ps1 not found in !SCRIPT_FOLDER!, downloading from GitHub...
+    powershell -NoProfile -Command "Invoke-WebRequest -Uri https://raw.githubusercontent.com/fahim-ahmed05/prothomalo-epaper2pdf/main/run.ps1 -OutFile !SCRIPT_PATH!"
+)
 
 rem Check current user's execution policy
 for /f "tokens=*" %%i in ('powershell -NoProfile -Command "Get-ExecutionPolicy -Scope CurrentUser"') do set "policy=%%i"
@@ -31,12 +45,6 @@ if /I not "!policy!"=="Unrestricted" (
     echo Execution policy set to Unrestricted.
 ) else (
     echo Execution policy is already Unrestricted.
-)
-
-rem Check if run.ps1 exists in the specified folder
-if not exist "!SCRIPT_PATH!" (
-    echo run.ps1 not found in !SCRIPT_FOLDER!, downloading from GitHub...
-    powershell -NoProfile -Command "Invoke-WebRequest -Uri https://raw.githubusercontent.com/fahim-ahmed05/prothomalo-epaper2pdf/main/run.ps1 -OutFile !SCRIPT_PATH!"
 )
 
 rem Execute the run.ps1 script
@@ -50,4 +58,3 @@ if exist "!SCRIPT_FOLDER!\output" (
 )
 
 endlocal
-pause
