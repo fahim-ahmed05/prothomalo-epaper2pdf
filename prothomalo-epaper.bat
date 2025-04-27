@@ -28,6 +28,12 @@ if "%SCRIPT_FOLDER%"=="Cancelled" (
     exit /b 1
 )
 
+rem Check if the folder exists
+if not exist "!SCRIPT_FOLDER!" (
+    echo The selected folder does not exist. Creating the folder...
+    mkdir "!SCRIPT_FOLDER!"
+)
+
 set "SCRIPT_PATH=!SCRIPT_FOLDER!\run.ps1"
 
 rem Check if run.ps1 exists in the specified folder
