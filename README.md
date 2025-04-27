@@ -1,7 +1,5 @@
 # Prothom Alo E-Paper to PDF Converter
 
-[![Static Badge](https://img.shields.io/badge/Join%20Telegram%20Group-Readers%20Club-blue)](https://t.me/+jTKFvw-_SXg0NzZl)
-
 ## Description
 This PowerShell script simplifies the process of downloading images from the [Prothom Alo ePaper](https://epaper.prothomalo.com/) website and converting them into a neatly organized PDF file using ImageMagick.
 
@@ -10,16 +8,12 @@ This PowerShell script simplifies the process of downloading images from the [Pr
 - PowerShell
 - ImageMagick
 
-## Notes
-- If you can't run the script or get execution policy error, execute this `Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted` command in PowerShell then run the script.
-- Download prothomalo-epaper.bat from [here](https://github.com/fahim-ahmed05/prothomalo-epaper2pdf/blob/main/prothomalo-epaper.bat) and place it on your desktop or wherever you want to easily run the script but first make sure you've ImageMagick installed. Also make sure that the folder name doesn't have any spaces. 
-- If you face any bug or error, please open a [issue](https://github.com/fahim0864/prothomalo-epaper2pdf/issues) or message in the [telegram group](https://t.me/+jTKFvw-_SXg0NzZl) with error message or screenshot.
-
 ## Usage
-1. Download and install ImageMagick from [here](https://imagemagick.org/script/download.php#windows) or execute this `winget install ImageMagick.ImageMagick` command in PowerShell.
-2. Download the script to your local machine from [here](https://github.com/fahim-ahmed05/prothomalo-epaper2pdf/archive/refs/heads/main.zip) or clone this repository.
-3. Extract the zip archive then open it, click on the explorer address bar and type `cmd` then hit enter.
-4. Type `powershell` in cmd window and hit enter, then type `.\run.ps1` and hit Enter to run the script.
+1. Open PowerShell and execute this `Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted`.
+2. Download and install ImageMagick from [here](https://imagemagick.org/script/download.php#windows) or execute this `winget install ImageMagick.ImageMagick` command in PowerShell.
+3. Download prothomalo-epaper.bat from [here](https://github.com/fahim-ahmed05/prothomalo-epaper2pdf/blob/main/prothomalo-epaper.bat) and place it on your desktop or wherever you want but make sure that the folder path doesn't have any spaces.
+4. Double click on the `bat` file to run it.
+5. It'll ask for a folder where you want to download the ePaper. Select the folder and again make sure that the folder path doesn't have any spaces.
 
 ## How It Works
 - Fetches website HTML source.
