@@ -36,17 +36,6 @@ if not exist "!SCRIPT_PATH!" (
     powershell -NoProfile -Command "Invoke-WebRequest -Uri https://raw.githubusercontent.com/fahim-ahmed05/prothomalo-epaper2pdf/main/run.ps1 -OutFile !SCRIPT_PATH!"
 )
 
-rem Check current user's execution policy
-for /f "tokens=*" %%i in ('powershell -NoProfile -Command "Get-ExecutionPolicy -Scope CurrentUser"') do set "policy=%%i"
-
-rem If execution policy is not Unrestricted, set it to Unrestricted
-if /I not "!policy!"=="Unrestricted" (
-    powershell -NoProfile -Command "Set-ExecutionPolicy Unrestricted -Scope CurrentUser -Force"
-    echo Execution policy set to Unrestricted.
-) else (
-    echo Execution policy is already Unrestricted.
-)
-
 rem Execute the run.ps1 script
 powershell -NoProfile -File "!SCRIPT_PATH!"
 
