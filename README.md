@@ -1,6 +1,5 @@
 # Prothom Alo E-Paper to PDF Converter
 
-## Description
 This PowerShell script simplifies the process of downloading images from the [Prothom Alo ePaper](https://epaper.prothomalo.com/) website and converting them into a neatly organized PDF file using ImageMagick.
 
 ## Requirements
