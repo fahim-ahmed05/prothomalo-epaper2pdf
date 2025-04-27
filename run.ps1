@@ -28,7 +28,7 @@ function Remove-TempFolder {
     )
 
     if (Test-Path $tempFolderPath) {
-        Write-Host -ForegroundColor Yellow "Deleting existing temp folder: $tempFolderPath"
+        Write-Host -ForegroundColor Yellow "Deleting temp folder: $tempFolderPath"
         Remove-Item $tempFolderPath -Recurse -Force
     }
 }
@@ -123,7 +123,7 @@ function Convert-ToPDF {
 
     Write-Host -ForegroundColor Green "Converting images to PDF..."
     # Convert images to PDF using ImageMagick
-    magick.exe convert $imageFolder\* $pdfFilePath
+    magick.exe $imageFolder\* $pdfFilePath
     Write-Host -ForegroundColor Green "PDF created and saved to $pdfFilePath"
 }
 
