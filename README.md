@@ -38,6 +38,8 @@ This PowerShell script simplifies the process of downloading images from the [Pr
 
 ## Donate
 
+Open-source is powered by coffee and curiosity. thanks for your support!
+
 <a href="https://www.buymeacoffee.com/fahim.ahmed" target="_blank">
   <img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" 
        alt="Buy Me A Coffee" 
