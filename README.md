@@ -1,14 +1,16 @@
-# Prothom Alo E-Paper to PDF Converter
+# New Improved Version → [Prothom Alo ePaper to PDF Generator](https://github.com/fahim-ahmed05/prothom-alo-epaper) 
+
+## Prothom Alo E-Paper to PDF Converter
 
 This PowerShell script simplifies the process of downloading images from the [Prothom Alo ePaper](https://epaper.prothomalo.com/) website and converting them into a neatly organized PDF file using ImageMagick.
 
-## Requirements
+### Requirements
 
 - Windows OS
 - PowerShell
 - ImageMagick
 
-## Setup
+### Setup
 
 - Open Terminal/PowerShell.
 - Type `Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted` and press Enter.
@@ -23,20 +25,20 @@ This PowerShell script simplifies the process of downloading images from the [Pr
 - Double click on the `prothomalo-epaper.bat` file to run it.
 - It'll ask for a folder, where you want to download the ePaper. Select the folder and again make sure that the folder path doesn't have any spaces.
 
-## How It Works
+### How It Works
 
 - Fetches website HTML source.
 - Extracts image links from the HTML source.
 - Downloads images from the extracted links.
 - Converts downloaded images into a cohesive PDF file.
 
-## File Structure
+### File Structure
 
 - `run.ps1`: The primary PowerShell script file.
 - `output/`: Directory storing the generated PDF file.
 - `temp/`: Temporary folder housing intermediate files during script execution.
 
-## Donate
+### Donate
 
 Open-source is powered by coffee and curiosity. thanks for your support!
 
